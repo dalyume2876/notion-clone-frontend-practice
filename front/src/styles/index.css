@@ -1,0 +1,79 @@
+:root {
+  --color-background: #191919;
+  --color-sidebar: #202020;
+  --color-control: #2b2b2b;
+  --color-text: #e6e6e6;
+  --color-text-muted: #a0a0a0;
+  --color-border: #353535;
+  --color-selected: #3f3f46;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+button {
+    font: inherit;
+}
+
+.workspace-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    padding: 24px 16px;
+    background-color: var(--color-sidebar);
+    border-right: 1px solid var(--color-border);
+}
+
+.page-editor {
+    padding: 48px;
+}
+
+.sidebar p,
+.page-editor p {  
+    color: var(--color-text-muted);
+}
+
+button {
+    padding: 8px 12px;
+    font: inherit;
+    color: var(--color-text);
+    background-color: var(--color-control);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.page-list {
+  display: grid;
+  gap: 4px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-list-item {
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.page-list-item:hover {
+  background-color: var(--color-control);
+}
+
+.page-list-item.is-selected {
+  background-color: var(--color-selected);
+  color: #ffffff;
+}
