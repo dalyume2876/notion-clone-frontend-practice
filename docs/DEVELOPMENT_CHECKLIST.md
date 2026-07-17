@@ -61,17 +61,17 @@
 
 ## 3단계: 문서 목록 조회 API
 
-- [ ] API 계약의 `GET /api/pages` 확인
-- [ ] Axios 및 Mock API 환경 준비
-- [ ] `PageSummary` 응답 타입 점검
-- [ ] `pageApi.ts`에 `getPages` 함수 작성
-- [ ] `pages`, `isLoading`, `error` 상태 선언
-- [ ] 빈 의존성 배열의 `useEffect`에서 최초 목록 요청
-- [ ] 로딩·오류·성공 화면 분기 처리
-- [ ] Network 탭에서 요청과 응답 확인
-- [ ] StrictMode의 개발 환경 중복 실행 확인
-- [ ] 린트 및 프로덕션 빌드 통과
-- [ ] `CURRENT_STATUS.md`와 학습 체크리스트 갱신
+- [x] API 계약의 `GET /api/pages` 확인
+- [x] Axios 및 Mock API 환경 준비
+- [x] `PageSummary` 응답 타입 점검
+- [x] `pageApi.ts`에 `getPages` 함수 작성
+- [x] `pages`, `isLoading`, `error` 상태 선언
+- [x] 빈 의존성 배열의 `useEffect`에서 최초 목록 요청
+- [x] 로딩·오류·성공 화면 분기 처리
+- [x] Network 탭에서 요청과 응답 확인
+- [x] StrictMode의 개발 환경 중복 실행 확인
+- [x] 린트 및 프로덕션 빌드 통과
+- [x] `CURRENT_STATUS.md`와 학습 체크리스트 갱신
 
 완료 조건: 최초 접속 시 로딩 표시 후 API에서 받은 문서 목록이 나타난다.
 
