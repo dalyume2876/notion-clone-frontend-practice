@@ -17,6 +17,67 @@
       "title": "프로젝트 아이디어",
       "content": "Notion Clone에 추가할 기능과 구현 순서를 정리합니다.",
       "updatedAt": "2026-07-17T12:00:00Z"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:21:27.444Z",
+      "id": "ceSNCGpRRnA"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:21:29.086Z",
+      "id": "1ZCc5d2wA1s"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:21:29.420Z",
+      "id": "TWWE2BSATMM"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:21:29.578Z",
+      "id": "-jN0YLyXy5I"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:24:59.949Z",
+      "id": "5p4rtVDmcNM"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:25:00.717Z",
+      "id": "DadwxH4AoAY"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:25:01.116Z",
+      "id": "CoMiT_BOFQ8"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:25:01.289Z",
+      "id": "sZVFpdWUock"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:25:01.448Z",
+      "id": "TKo9JBv23WQ"
+    },
+    {
+      "title": "제목 없음",
+      "content": "",
+      "updatedAt": "2026-07-19T08:25:01.610Z",
+      "id": "YD8Vy2T5SqY"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

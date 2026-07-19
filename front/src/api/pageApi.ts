@@ -1,4 +1,4 @@
-import type { PageSummary, PageDetail } from "../types/page"
+import type { CreatePageRequest, PageSummary, PageDetail } from "../types/page"
 import axiosInstance from "./axiosInstance"
 
 export async function getPages(): Promise<PageSummary[]> {
@@ -15,6 +15,17 @@ export async function getPageById(
     const response = await axiosInstance.get<PageDetail>(
         `/pages/${pageId}`,
         { signal },
+    )
+
+    return response.data
+}
+
+export async function createPage(
+    data: CreatePageRequest
+): Promise<PageDetail> {
+    const response = await axiosInstance.post<PageDetail>(
+        "/pages",
+        data,
     )
 
     return response.data

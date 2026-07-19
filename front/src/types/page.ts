@@ -9,3 +9,9 @@ export interface PageDetail {
     content: string
     updatedAt: string
 }
+
+export interface CreatePageRequest {
+    title: string
+    content: string
+    updatedAt: string
+}

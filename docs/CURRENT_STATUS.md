@@ -6,8 +6,8 @@
 ---
 
 ## 1. 현재 학습 진행 단계
-* **진행 단계**: **4단계 (문서 상세 조회 API 진행 중)**
-* **목표 진도**: [DEVELOPMENT_PLAN.md](file:///c:/Users/Dalyume/Documents/DAL/Coding/notion-clone/docs/DEVELOPMENT_PLAN.md) 기준 4단계 완료
+* **진행 단계**: **5단계 완료 (6단계 시작 대기)**
+* **목표 진도**: [DEVELOPMENT_PLAN.md](file:///c:/Users/Dalyume/Documents/DAL/Coding/notion-clone/docs/DEVELOPMENT_PLAN.md) 기준 6단계 시작
 
 | 단계 | 개발 영역 | 진행 상태 | 담당 학습 주제 |
 | :--- | :--- | :---: | :--- |
@@ -15,8 +15,8 @@
 | **1단계** | 정적 화면 구조 | **완료 (Done)** | React 컴포넌트 뼈대 및 CSS 레이아웃 구축 |
 | **2단계** | Mock 문서 목록 | **완료 (Done)** | Props 전달과 Array 렌더링, 선택 상태 구현 |
 | **3단계** | 목록 조회 API | **완료 (Done)** | `useEffect` 최초 데이터 fetch 적용 |
-| **4단계** | 상세 조회 API | **진행 중 (In Progress)** | 의존성 배열을 통한 상세 ID 조회 동기화 |
-| **5단계** | 문서 생성 API | 대기 중 | POST 요청 및 이벤트 핸들링 |
+| **4단계** | 상세 조회 API | **완료 (Done)** | 의존성 배열을 통한 상세 ID 조회 동기화 |
+| **5단계** | 문서 생성 API | **완료 (Done)** | POST 요청 및 이벤트 핸들링 |
 | **6단계** | 문서 수정 및 저장 | 대기 중 | 제어 컴포넌트(Controlled Input) 및 PATCH 요청 |
 | **7단계** | 문서 삭제 API | 대기 중 | DELETE 요청 및 상세/선택 해제 대응 |
 | **8단계** | 디바운스 자동저장 | 대기 중 | `setTimeout` 디바운싱 및 Cleanup 함수 응용 |
@@ -31,22 +31,23 @@
 * [x] **1단계 정적 화면 구조**: Router, Page, Layout, Sidebar, PageEditor를 분리하고 다크 테마 좌우 레이아웃 구성.
 * [x] **2단계 Mock 문서 목록**: 타입이 적용된 Mock 배열을 Props로 전달하고 `map()`, 선택 상태, 클릭 이벤트, 활성 스타일 구현.
 * [x] **3단계 목록 조회 API**: Axios와 JSON Server를 연결하고 `useEffect` 최초 요청 및 Loading/Error/Data 상태 구현.
+* [x] **4단계 상세 조회 API**: 선택 ID 기반 상세 조회, 요청 취소, Loading/Error/Data 분기와 PageEditor 렌더링 구현.
+* [x] **5단계 문서 생성 API**: POST 요청, 중복 요청 방지, 목록 재조회와 생성 문서 자동 선택 구현.
 
 ---
 
 ## 3. 진행 중인 기능
-* **현재 태스크**: 4단계 문서 상세 조회 API
-  * 기능 명세 작성 완료
-  * `PageDetail` 타입 정의 완료
-  * 다음 작업: Mock 상세 데이터와 `getPageById` API 함수 작성
+* **현재 태스크**: 5단계 새 문서 생성 API 완료
+  * 생성 요청 타입과 `createPage` 구현 완료
+  * 버튼 이벤트, 목록 갱신, 생성 문서 선택 및 오류 처리 검증 완료
 
 ---
 
 ## 4. 다음 구현 예정 기능
-* **대상**: 4단계 - 문서 상세 조회 API
-  * `PageDetail` 타입과 Mock 상세 데이터 정의
-  * `GET /api/pages/{pageId}` API 함수 작성
-  * `selectedPageId` 변경을 감지하는 `useEffect` 구현
+* **대상**: 6단계 - 문서 수정과 수동 저장
+  * PATCH 요청 타입과 API 함수 작성
+  * 제목과 본문을 제어 컴포넌트로 변경
+  * 저장 버튼으로 수정 데이터를 서버에 반영
 
 ---
 
@@ -82,6 +83,8 @@ notion-clone/
 
 ## 6. 사용 중인 API 연동 목록
 * `GET /api/pages` - JSON Server를 통한 문서 목록 조회
+* `GET /api/pages/{pageId}` - 선택한 문서의 상세 조회
+* `POST /api/pages` - 새 문서 생성
 
 ---
 

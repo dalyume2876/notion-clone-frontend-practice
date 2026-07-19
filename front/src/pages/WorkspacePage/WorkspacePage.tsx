@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar/Sidebar"
 import PageEditor from "../../components/PageEditor/PageEditor"
 import type { PageSummary, PageDetail } from "../../types/page"
 import { useEffect, useState } from "react"
-import { getPageById, getPages } from "../../api/pageApi"
+import { createPage, getPageById, getPages } from "../../api/pageApi"
 
 function WorkspacePage() {
 
@@ -14,6 +14,8 @@ function WorkspacePage() {
     const [pages, setPages] = useState<PageSummary[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
+    const [isCreatingPage, setIsCreatingPage] = useState(false)
+    const [createError, setCreateError] = useState<string | null>(null)
 
     useEffect(() => {
         const fetchPages = async () => {
@@ -36,9 +38,6 @@ function WorkspacePage() {
 
     useEffect(() => {
         if (selectedPageId === null) {
-            setCurrentPage(null)
-            setPageError(null)
-            setIsPageLoading(false)
             return
         }
 
@@ -72,14 +71,46 @@ function WorkspacePage() {
         return () => controller.abort()
     }, [selectedPageId])
 
+    const handleCreatePage = async () => {
+        if (isCreatingPage) {
+            return
+        }
+
+        setIsCreatingPage(true)
+        setCreateError(null)
+
+        try {
+            const createdPage = await createPage({
+                title: "제목 없음",
+                content: "",
+                updatedAt: new Date().toISOString(),
+            })
+
+            const updatePages = await getPages()
+
+            setPages(updatePages)
+            setSelectedPageId(createdPage.id)
+        } catch(caughtError) {
+            console.error(caughtError)
+            setCreateError("문서를 생성하지 못했습니다.")
+        } finally {
+            setIsCreatingPage(false)
+        }
+    }
+
+
+
     return (
         <WorkspaceLayout>
-            <Sidebar 
+            <Sidebar
                 pages={pages}
-                selectedPageId = {selectedPageId}
-                onSelectPage = {setSelectedPageId}
+                selectedPageId={selectedPageId}
+                onSelectPage={setSelectedPageId}
+                onCreatePage={handleCreatePage}
                 isLoading={isLoading}
+                isCreatingPage={isCreatingPage}
                 error={error}
+                createError={createError}
             />
             <PageEditor 
                 page={currentPage}
