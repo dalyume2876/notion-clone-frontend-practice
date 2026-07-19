@@ -1,13 +1,16 @@
 import WorkspaceLayout from "../../layouts/WorkspaceLayout/WorkspaceLayout"
 import Sidebar from "../../components/Sidebar/Sidebar"
 import PageEditor from "../../components/PageEditor/PageEditor"
-import type { PageSummary } from "../../types/page"
+import type { PageSummary, PageDetail } from "../../types/page"
 import { useEffect, useState } from "react"
-import { getPages } from "../../api/pageApi"
+import { getPageById, getPages } from "../../api/pageApi"
 
 function WorkspacePage() {
 
     const [selectedPageId, setSelectedPageId] = useState<string | null>(null)
+    const [currentPage, setCurrentPage] = useState<PageDetail | null>(null)
+    const [isPageLoading, setIsPageLoading] = useState(false)
+    const [pageError, setPageError] = useState<string | null>(null)
     const [pages, setPages] = useState<PageSummary[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
@@ -31,6 +34,44 @@ function WorkspacePage() {
         fetchPages()
     }, [])
 
+    useEffect(() => {
+        if (selectedPageId === null) {
+            setCurrentPage(null)
+            setPageError(null)
+            setIsPageLoading(false)
+            return
+        }
+
+        const controller = new AbortController()
+
+        const fetchPage = async () => {
+            setIsPageLoading(true)
+            setPageError(null)
+            setCurrentPage(null)
+
+            try {
+                const data = await getPageById(
+                    selectedPageId,
+                    controller.signal,
+                )
+                setCurrentPage(data)
+            } catch (caughError) {
+                if(!controller.signal.aborted) {
+                    console.error(caughError)
+                    setPageError("문서를 불러오지 못했습니다.")
+                }
+            } finally {
+                if (!controller.signal.aborted) {
+                    setIsPageLoading(false)
+                }
+            }
+        }
+
+        fetchPage()
+
+        return () => controller.abort()
+    }, [selectedPageId])
+
     return (
         <WorkspaceLayout>
             <Sidebar 
@@ -40,7 +81,11 @@ function WorkspacePage() {
                 isLoading={isLoading}
                 error={error}
             />
-            <PageEditor/>
+            <PageEditor 
+                page={currentPage}
+                isLoading={isPageLoading}
+                error={pageError}
+            />
         </WorkspaceLayout>
     )
 }

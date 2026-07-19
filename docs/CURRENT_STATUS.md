@@ -6,8 +6,8 @@
 ---
 
 ## 1. 현재 학습 진행 단계
-* **진행 단계**: **3단계 (문서 목록 조회 API 완료)**
-* **목표 진도**: [DEVELOPMENT_PLAN.md](file:///c:/Users/Dalyume/Documents/DAL/Coding/notion-clone/docs/DEVELOPMENT_PLAN.md) 기준 4단계 진입 예정
+* **진행 단계**: **4단계 (문서 상세 조회 API 진행 중)**
+* **목표 진도**: [DEVELOPMENT_PLAN.md](file:///c:/Users/Dalyume/Documents/DAL/Coding/notion-clone/docs/DEVELOPMENT_PLAN.md) 기준 4단계 완료
 
 | 단계 | 개발 영역 | 진행 상태 | 담당 학습 주제 |
 | :--- | :--- | :---: | :--- |
@@ -15,7 +15,7 @@
 | **1단계** | 정적 화면 구조 | **완료 (Done)** | React 컴포넌트 뼈대 및 CSS 레이아웃 구축 |
 | **2단계** | Mock 문서 목록 | **완료 (Done)** | Props 전달과 Array 렌더링, 선택 상태 구현 |
 | **3단계** | 목록 조회 API | **완료 (Done)** | `useEffect` 최초 데이터 fetch 적용 |
-| **4단계** | 상세 조회 API | 대기 중 | 의존성 배열을 통한 상세 ID 조회 동기화 |
+| **4단계** | 상세 조회 API | **진행 중 (In Progress)** | 의존성 배열을 통한 상세 ID 조회 동기화 |
 | **5단계** | 문서 생성 API | 대기 중 | POST 요청 및 이벤트 핸들링 |
 | **6단계** | 문서 수정 및 저장 | 대기 중 | 제어 컴포넌트(Controlled Input) 및 PATCH 요청 |
 | **7단계** | 문서 삭제 API | 대기 중 | DELETE 요청 및 상세/선택 해제 대응 |
@@ -35,7 +35,10 @@
 ---
 
 ## 3. 진행 중인 기능
-* **현재 태스크**: 없음 (4단계 시작 대기)
+* **현재 태스크**: 4단계 문서 상세 조회 API
+  * 기능 명세 작성 완료
+  * `PageDetail` 타입 정의 완료
+  * 다음 작업: Mock 상세 데이터와 `getPageById` API 함수 작성
 
 ---
 

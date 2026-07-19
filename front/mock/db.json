@@ -2,15 +2,21 @@
   "pages": [
     {
       "id": "1",
-      "title": "React 학습 노트"
+      "title": "React 학습 노트",
+      "content": "React의 컴포넌트, Props, 상태 흐름을 정리한 학습 노트입니다.",
+      "updatedAt": "2026-07-17T10:00:00Z"
     },
     {
       "id": "2",
-      "title": "오늘 할 일"
+      "title": "오늘 할 일",
+      "content": "오늘은 상세 조회 API와 useEffect 의존성 배열을 학습합니다.",
+      "updatedAt": "2026-07-17T11:00:00Z"
     },
     {
       "id": "3",
-      "title": "프로젝트 아이디어"
+      "title": "프로젝트 아이디어",
+      "content": "Notion Clone에 추가할 기능과 구현 순서를 정리합니다.",
+      "updatedAt": "2026-07-17T12:00:00Z"
     }
   ]
 }

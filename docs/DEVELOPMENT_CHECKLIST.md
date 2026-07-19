@@ -34,7 +34,7 @@
 - [x] `App → WorkspacePage → WorkspaceLayout` 조립 관계 연결
 - [x] Vanilla CSS로 좌측 사이드바와 우측 본문 영역 배치
 - [x] `/` 접속 시 정적 워크스페이스 화면 확인
-- [x] 린트 및 프로덕션 빌드 통과
+- [ ] 린트 및 프로덕션 빌드 통과
 - [x] `CURRENT_STATUS.md` 갱신
 
 완료 조건: 왼쪽 사이드바와 오른쪽 에디터 형태가 상태나 API 없이 정적으로 표시된다.
@@ -79,16 +79,16 @@
 
 ## 4단계: 문서 상세 조회 API
 
-- [ ] `PageDetail` 타입 정의
-- [ ] API 계약의 `GET /api/pages/{pageId}` 확인
-- [ ] `pageApi.ts`에 `getPageById` 함수 작성
-- [ ] 상세 데이터·로딩·오류 상태 위치 결정
-- [ ] `selectedPageId` 의존성의 `useEffect` 작성
-- [ ] 선택 ID가 없을 때 요청하지 않도록 방어 처리
-- [ ] 상세 데이터를 `PageEditor`에 Props로 전달
-- [ ] 빠른 문서 전환 시 오래된 응답 처리 방식 점검
+- [x] `PageDetail` 타입 정의
+- [x] API 계약의 `GET /api/pages/{pageId}` 확인
+- [x] `pageApi.ts`에 `getPageById` 함수 작성
+- [x] 상세 데이터·로딩·오류 상태 위치 결정
+- [x] `selectedPageId` 의존성의 `useEffect` 작성
+- [x] 선택 ID가 없을 때 요청하지 않도록 방어 처리
+- [x] 상세 데이터를 `PageEditor`에 Props로 전달
+- [x] 빠른 문서 전환 시 오래된 응답 처리 방식 점검
 - [ ] Network 탭과 React DevTools로 흐름 확인
-- [ ] 린트 및 프로덕션 빌드 통과
+- [x] 린트 및 프로덕션 빌드 통과
 - [ ] `CURRENT_STATUS.md`와 학습 체크리스트 갱신
 
 완료 조건: 목록에서 문서를 선택하면 해당 제목과 본문이 에디터에 표시된다.
