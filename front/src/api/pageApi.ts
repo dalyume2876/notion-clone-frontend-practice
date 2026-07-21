@@ -1,4 +1,4 @@
-import type { CreatePageRequest, PageSummary, PageDetail } from "../types/page"
+import type { CreatePageRequest, PageSummary, PageDetail, UpdatePageRequest } from "../types/page"
 import axiosInstance from "./axiosInstance"
 
 export async function getPages(): Promise<PageSummary[]> {
@@ -24,7 +24,19 @@ export async function createPage(
     data: CreatePageRequest
 ): Promise<PageDetail> {
     const response = await axiosInstance.post<PageDetail>(
-        "/pages",
+        `/pages`,
+        data,
+    )
+
+    return response.data
+}
+
+export async function updatePage(
+    pageId: string,
+    data: UpdatePageRequest
+): Promise<PageDetail> {
+    const response = await axiosInstance.patch<PageDetail>(
+        `/pages/${pageId}`,
         data,
     )
 

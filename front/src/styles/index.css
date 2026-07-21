@@ -36,7 +36,53 @@ button {
 }
 
 .page-editor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
     padding: 48px;
+}
+
+.page-editor input,
+.page-editor textarea {
+    width: min(100%, 760px);
+    font: inherit;
+    color: var(--color-text);
+    background-color: transparent;
+    outline: none;
+}
+
+.page-editor input {
+    padding: 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    border: 0;
+    border-bottom: 1px solid transparent;
+}
+
+.page-editor input:focus {
+    border-bottom-color: var(--color-border);
+}
+
+.page-editor textarea {
+    min-height: 360px;
+    padding: 16px;
+    line-height: 1.7;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    resize: vertical;
+}
+
+.page-editor button {
+    align-self: flex-start;
+}
+
+.page-editor small {
+    color: var(--color-text-muted);
+}
+
+.page-editor textarea:focus {
+    border-color: var(--color-text-muted);
 }
 
 .sidebar p,

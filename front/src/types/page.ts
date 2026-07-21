@@ -15,3 +15,9 @@ export interface CreatePageRequest {
     content: string
     updatedAt: string
 }
+
+export interface UpdatePageRequest {
+    title: string
+    content: string
+    updatedAt: string
+}

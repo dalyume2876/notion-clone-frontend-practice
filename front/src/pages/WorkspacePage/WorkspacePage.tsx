@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar/Sidebar"
 import PageEditor from "../../components/PageEditor/PageEditor"
 import type { PageSummary, PageDetail } from "../../types/page"
 import { useEffect, useState } from "react"
-import { createPage, getPageById, getPages } from "../../api/pageApi"
+import { createPage, getPageById, getPages, updatePage } from "../../api/pageApi"
 
 function WorkspacePage() {
 
@@ -98,7 +98,22 @@ function WorkspacePage() {
         }
     }
 
+    const handleSavePage = async (
+        pageId: string,
+        title: string,
+        content: string
+    ) => {
+        const updatedPage = await updatePage(pageId, {
+            title,
+            content,
+            updatedAt: new Date().toISOString(),
+        })
 
+        const updatePages = await getPages()
+
+        setCurrentPage(updatedPage)
+        setPages(updatePages)
+    }
 
     return (
         <WorkspaceLayout>
@@ -113,9 +128,11 @@ function WorkspacePage() {
                 createError={createError}
             />
             <PageEditor 
+                key={currentPage?.id ?? "empty"}
                 page={currentPage}
                 isLoading={isPageLoading}
                 error={pageError}
+                onSave={handleSavePage}
             />
         </WorkspaceLayout>
     )

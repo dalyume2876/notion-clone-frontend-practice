@@ -15,7 +15,7 @@ type SidebarProps = {
 function Sidebar({ pages, selectedPageId, onSelectPage, onCreatePage, isLoading, error, isCreatingPage, createError }: SidebarProps) {
     return (
         <aside className="sidebar">
-            <h2>Notion Class</h2>
+            <h2>Notion Clone</h2>
             <button type="button"
                     onClick={onCreatePage}
                     disabled={isCreatingPage}
