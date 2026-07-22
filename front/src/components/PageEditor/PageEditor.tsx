@@ -10,22 +10,26 @@ interface PageEditorProps{
         title: string,
         content: string,
     ) => Promise<void>
+    onDelete: (pageId: string) => Promise<void>
 }
 
 function PageEditor({
     page,
     isLoading,
     error,
-    onSave
+    onSave,
+    onDelete
 }: PageEditorProps) {
 
     const [localTitle, setLocalTitle] = useState(page?.title ?? "")
     const [localContent, setLocalContent] = useState(page?.content ?? "")
     const [isSaving, setIsSaving] = useState(false)
     const [saveMessage, setSaveMessage] = useState<string | null>(null)
+    const [isDeleting, setIsDeleting] = useState(false)
+    const [deleteError, setDeleteError] = useState<string | null>(null)
 
     const handleSave = async () => {
-        if(page === null || isSaving) {
+        if(page === null || isSaving || isDeleting) {
             return
         }
 
@@ -44,6 +48,23 @@ function PageEditor({
             setSaveMessage("저장에 실패했습니다.")
         } finally{
             setIsSaving(false)
+        }
+    }
+
+    const handleDelete = async () => {
+        if (page === null || isDeleting || isSaving) {
+            return
+        }
+
+        setIsDeleting(true)
+        setDeleteError(null)
+
+        try {
+            await onDelete(page.id)
+        } catch (caughError) {
+            console.error(caughError)
+            setDeleteError("문서를 삭제하지 못했습니다.")
+            setIsDeleting(false)
         }
     }
 
@@ -82,10 +103,22 @@ function PageEditor({
             <button
                 type="button"
                 onClick={handleSave} 
-                disabled={isSaving}
+                disabled={isSaving || isDeleting}
             >
                 {isSaving ? "저장 중..." : "저장"}
             </button>
+
+            <button
+                type="button"
+                onClick={handleDelete}
+                disabled={isDeleting || isSaving}
+            >
+                {isDeleting ? "삭제중..." : "삭제"}
+            </button>
+
+            {deleteError && (
+                <p role="alert">{deleteError}</p>
+            )}
 
             {saveMessage && (
                 <p role="status">{saveMessage}</p>

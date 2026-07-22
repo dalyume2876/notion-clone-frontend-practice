@@ -6,8 +6,8 @@
 ---
 
 ## 1. 현재 학습 진행 단계
-* **진행 단계**: **6단계 완료 (7단계 시작 대기)**
-* **목표 진도**: [DEVELOPMENT_PLAN.md](file:///c:/Users/Dalyume/Documents/DAL/Coding/notion-clone/docs/DEVELOPMENT_PLAN.md) 기준 7단계 시작
+* **진행 단계**: **7단계 완료 (8단계 시작 대기)**
+* **목표 진도**: [DEVELOPMENT_PLAN.md](file:///c:/Users/Dalyume/Documents/DAL/Coding/notion-clone/docs/DEVELOPMENT_PLAN.md) 기준 8단계 시작
 
 | 단계 | 개발 영역 | 진행 상태 | 담당 학습 주제 |
 | :--- | :--- | :---: | :--- |
@@ -18,7 +18,7 @@
 | **4단계** | 상세 조회 API | **완료 (Done)** | 의존성 배열을 통한 상세 ID 조회 동기화 |
 | **5단계** | 문서 생성 API | **완료 (Done)** | POST 요청 및 이벤트 핸들링 |
 | **6단계** | 문서 수정 및 저장 | **완료 (Done)** | 제어 컴포넌트(Controlled Input) 및 PATCH 요청 |
-| **7단계** | 문서 삭제 API | 대기 중 | DELETE 요청 및 상세/선택 해제 대응 |
+| **7단계** | 문서 삭제 API | **완료 (Done)** | DELETE 요청 및 상세/선택 해제 대응 |
 | **8단계** | 디바운스 자동저장 | 대기 중 | `setTimeout` 디바운싱 및 Cleanup 함수 응용 |
 | **9단계** | Spring Boot 연동 | 대기 중 | 로컬 실서버 CORS 해결 및 API 통합 검증 |
 
@@ -34,21 +34,22 @@
 * [x] **4단계 상세 조회 API**: 선택 ID 기반 상세 조회, 요청 취소, Loading/Error/Data 분기와 PageEditor 렌더링 구현.
 * [x] **5단계 문서 생성 API**: POST 요청, 중복 요청 방지, 목록 재조회와 생성 문서 자동 선택 구현.
 * [x] **6단계 문서 수정과 수동 저장**: 제어 컴포넌트, PATCH 요청, 저장 상태와 사이드바 제목 갱신 구현.
+* [x] **7단계 문서 삭제 API**: DELETE 요청, 중복 요청 방지, 목록·선택·상세 상태 초기화 구현.
 
 ---
 
 ## 3. 진행 중인 기능
-* **현재 태스크**: 6단계 문서 수정과 수동 저장 완료
-  * 제목과 본문 편집, 저장 상태와 PATCH 요청 구현 완료
-  * Network 요청 Body, 응답, 새로고침 후 데이터 유지 검증 완료
+* **현재 태스크**: 7단계 문서 삭제 완료
+  * 삭제 버튼, DELETE API와 실패 상태 구현 완료
+  * 목록·선택·상세 초기화 및 Mock `200 OK` 응답 검증 완료
 
 ---
 
 ## 4. 다음 구현 예정 기능
-* **대상**: 7단계 - 문서 삭제
-  * DELETE API 함수와 삭제 버튼 작성
-  * 삭제 성공 후 선택 상태와 상세 화면 초기화
-  * 목록 갱신과 오류 처리
+* **대상**: 8단계 - 디바운스 자동 저장
+  * 입력 변경 여부와 자동 저장 조건 정의
+  * 1.5초 저장 타이머와 Cleanup 구현
+  * 저장 중 문서 전환과 수동 저장 충돌 방지
 
 ---
 
@@ -87,6 +88,7 @@ notion-clone/
 * `GET /api/pages/{pageId}` - 선택한 문서의 상세 조회
 * `POST /api/pages` - 새 문서 생성
 * `PATCH /api/pages/{pageId}` - 선택 문서의 제목과 본문 수정
+* `DELETE /api/pages/{pageId}` - 선택 문서 삭제
 
 ---
 

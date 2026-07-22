@@ -14,7 +14,8 @@ function PageListItem({ page, isSelected, onSelectPage }: PageListItemProps){
                 className={`page-list-item${isSelected ? ' is-selected' : ''}`}
                 aria-pressed={isSelected}
                 onClick={() => onSelectPage(page.id)}
-            >{page.title}
+            >
+                {page.title}
             </button>
         </li>
     )

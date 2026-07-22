@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar/Sidebar"
 import PageEditor from "../../components/PageEditor/PageEditor"
 import type { PageSummary, PageDetail } from "../../types/page"
 import { useEffect, useState } from "react"
-import { createPage, getPageById, getPages, updatePage } from "../../api/pageApi"
+import { createPage, getPageById, getPages, updatePage, deletePage } from "../../api/pageApi"
 
 function WorkspacePage() {
 
@@ -115,6 +115,18 @@ function WorkspacePage() {
         setPages(updatePages)
     }
 
+    const handleDeletePage = async (
+        pageId: string,
+    ) => {
+        await deletePage(pageId)
+        
+        const updatePages = await getPages()
+
+        setPages(updatePages)
+        setSelectedPageId(null)
+        setCurrentPage(null)
+    }
+
     return (
         <WorkspaceLayout>
             <Sidebar
@@ -133,6 +145,7 @@ function WorkspacePage() {
                 isLoading={isPageLoading}
                 error={pageError}
                 onSave={handleSavePage}
+                onDelete={handleDeletePage}
             />
         </WorkspaceLayout>
     )

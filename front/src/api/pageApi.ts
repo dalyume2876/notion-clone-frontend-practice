@@ -42,3 +42,9 @@ export async function updatePage(
 
     return response.data
 }
+
+export async function deletePage(
+    pageId: string,
+): Promise<void> {
+    await axiosInstance.delete(`/pages/${pageId}`)
+}

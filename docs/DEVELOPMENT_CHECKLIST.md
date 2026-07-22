@@ -133,17 +133,17 @@
 
 ## 7단계: 문서 삭제
 
-- [ ] API 계약의 `DELETE /api/pages/{pageId}` 확인
-- [ ] `pageApi.ts`에 `deletePage` 함수 작성
-- [ ] 삭제 버튼 배치
-- [ ] 삭제 API를 클릭 이벤트 핸들러에서 호출
-- [ ] 삭제 중 중복 요청 방지
-- [ ] 성공 후 `selectedPageId` 초기화
-- [ ] 성공 후 문서 목록 갱신
-- [ ] 에디터의 빈 상태 화면 처리
-- [ ] Network 탭에서 `204 No Content` 확인
-- [ ] 린트 및 프로덕션 빌드 통과
-- [ ] `CURRENT_STATUS.md`와 학습 체크리스트 갱신
+- [x] API 계약의 `DELETE /api/pages/{pageId}` 확인
+- [x] `pageApi.ts`에 `deletePage` 함수 작성
+- [x] 삭제 버튼 배치
+- [x] 삭제 API를 클릭 이벤트 핸들러에서 호출
+- [x] 삭제 중 중복 요청 방지
+- [x] 성공 후 `selectedPageId` 초기화
+- [x] 성공 후 문서 목록 갱신
+- [x] 에디터의 빈 상태 화면 처리
+- [x] Network 탭에서 성공 `2xx` 확인 (JSON Server `200`, Spring 계약 `204`)
+- [x] 린트 및 프로덕션 빌드 통과
+- [x] `CURRENT_STATUS.md`와 학습 체크리스트 갱신
 
 완료 조건: 선택한 문서가 삭제되고 목록과 에디터 상태가 안전하게 초기화된다.
 
